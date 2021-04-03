@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.wrapper {
+  padding-left: 10px;
+  padding-bottom: 40px;
+
+  .title {
+    font-size: 54px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+  }
+
+  .subtitle {
+    font-size: 54px;
+    line-height: 1.05;
+  }
+
+  .loading {
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: rgba(107, 108, 179, 0.39);
+  }
+}

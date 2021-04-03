@@ -1,0 +1,28 @@
+.label {
+  position: relative;
+  display: block;
+  margin-bottom: 43px;
+  height: 88px;
+  max-width: 400px;
+  font-size: 36px;
+  line-height: 1;
+
+  .input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 5px;
+    width: 285px;
+    height: 40px;
+    font-size: 25px;
+    letter-spacing: 0.8px;
+
+    &:focus {
+      padding-left: 4px;
+      border: 3px solid rgba(196, 225, 252, 0.616);
+      box-shadow: 0px 0px 3px 3px rgba(83, 171, 253, 0.459);
+      box-shadow: 0px 0px 6px 6px rgba(83, 171, 253, 0.466);
+      outline: none;
+    }
+  }
+}
