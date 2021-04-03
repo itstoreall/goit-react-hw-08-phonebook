@@ -5,7 +5,6 @@ import defaultAvatar from './default-avatar.png';
 import s from './AppBar.module.scss';
 
 const UserMenu = ({ avatar, name, onLogout }) => {
-  console.log(name);
   return (
     <div className={s.container}>
       <img src={avatar} alt='' width='32' className={s.avatar} />
