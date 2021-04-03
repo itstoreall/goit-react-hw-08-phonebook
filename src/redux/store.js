@@ -2,7 +2,7 @@ import { getDefaultMiddleware, configureStore } from '@reduxjs/toolkit';
 // import logger from 'redux-logger'; // Don't delete
 import {
   persistStore,
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,9 +10,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 import { contactsReducer } from './contacts';
-// import { authReducer } from './auth';
+import { authReducer } from './auth';
 
 // Thunk ловит функции, которые вместо объектов
 const middleware = [
@@ -24,8 +24,15 @@ const middleware = [
   // logger, // Don't delete
 ];
 
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 const store = configureStore({
   reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
   },
   middleware,

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/auth';
 import s from './Views.module.scss';
 
-class LoginView extends Component {
+class RegisterView extends Component {
   state = {
     name: '',
     email: '',
@@ -15,6 +17,8 @@ class LoginView extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    this.props.onRegister(this.state);
+
     this.setState({ name: '', email: '', password: '' });
   };
 
@@ -25,35 +29,48 @@ class LoginView extends Component {
       <div>
         <h1>Registration Page</h1>
 
-        <form onSubmit={this.handleSubmit} className={s.form}>
+        <form
+          onSubmit={this.handleSubmit}
+          className={s.form}
+          autoComplete='off'
+        >
           <label className={s.label}>
+            Name
             <input
               type='text'
               name='name'
               value={name}
-              onchange={this.handleChange}
+              onChange={this.handleChange}
             />
           </label>
           <label className={s.label}>
+            E-mail
             <input
               type='email'
               name='email'
               value={email}
-              onchange={this.handleChange}
+              onChange={this.handleChange}
             />
           </label>
           <label className={s.label}>
+            Password
             <input
               type='password'
               name='password'
               value={password}
-              onchange={this.handleChange}
+              onChange={this.handleChange}
             />
           </label>
+
+          <button type='submit'>Register now</button>
         </form>
       </div>
     );
   }
 }
 
-export default LoginView;
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
+
+export default connect(null, mapDispatchToProps)(RegisterView);

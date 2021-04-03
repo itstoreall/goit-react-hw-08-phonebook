@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import AppBar from './components/AppBar/AppBar';
+import { connect } from 'react-redux';
 import HomeView from './views/HomeView';
 import RegisterView from './views/RegisterView';
 import LoginView from './views/LoginView';
 import ContactsView from './views/ContactsView';
+import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container';
+import { authOperations } from './redux/auth';
 
-const App = () => {
-  return (
-    <Container>
-      <AppBar />
+class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
 
-      <Switch>
-        <Route path='/' exact comornent={HomeView} />
-        <Route path='/register' comornent={RegisterView} />
-        <Route path='/login' comornent={LoginView} />
-        <Route path='/contacts' comornent={ContactsView} />
-      </Switch>
-    </Container>
-  );
+  render() {
+    return (
+      <Container>
+        <AppBar />
+
+        <Switch>
+          <Route path='/' exact component={HomeView} />
+          <Route path='/register' component={RegisterView} />
+          <Route path='/login' component={LoginView} />
+          <Route path='/contacts' component={ContactsView} />
+        </Switch>
+      </Container>
+    );
+  }
+}
+
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
 };
 
-export default App;
+export default connect(null, mapDispatchToProps)(App);
 
 /**
  * Before

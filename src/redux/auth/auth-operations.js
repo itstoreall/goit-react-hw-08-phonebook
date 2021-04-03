@@ -1,7 +1,7 @@
 import axios from 'axios';
-// import authActions from './auth-actions';
+import authActions from './auth-actions';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const token = {
   set(token) {
@@ -12,11 +12,33 @@ const token = {
   },
 };
 
-// Register
-const register = (credentials) => (dispatch) => {};
+// Register (POST)
+const register = (credentials) => async (dispatch) => {
+  dispatch(authActions.registerRequest());
+
+  try {
+    const response = await axios.post('/users/signup', credentials);
+
+    // token.set(response.data.token);
+    dispatch(authActions.registerSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.registerError(error.message));
+  }
+};
 
 // Log in
-const logIn = (credentials) => (dispatch) => {};
+const logIn = (credentials) => async (dispatch) => {
+  dispatch(authActions.loginRequest());
+
+  try {
+    const response = await axios.post('/users/login', credentials);
+
+    // token.set(response.data.token);
+    dispatch(authActions.loginSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.loginError(error.message));
+  }
+};
 
 // Log out
 const logOut = () => (dispatch) => {};

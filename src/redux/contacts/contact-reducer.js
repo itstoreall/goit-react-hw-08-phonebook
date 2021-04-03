@@ -1,9 +1,9 @@
 import { createReducer } from '@reduxjs/toolkit';
-import db from '../../components/dataBase/db.json';
+// import db from '../../components/dataBase/db.json';
 import { combineReducers } from 'redux';
 import { contactsActions } from '../contacts';
 
-const itemsReducer = createReducer(db.contacts, {
+const itemsReducer = createReducer([], {
   [contactsActions.getContactsSuccess]: (_, { payload }) => payload,
   [contactsActions.addContactSuccess]: (state, { payload }) => [
     payload,

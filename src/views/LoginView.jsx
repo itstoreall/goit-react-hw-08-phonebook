@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/auth';
 import s from './Views.module.scss';
 
 class LoginView extends Component {
@@ -13,6 +15,8 @@ class LoginView extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    this.props.onLogin(this.state);
 
     this.setState({ name: '', email: '', password: '' });
   };
@@ -34,7 +38,7 @@ class LoginView extends Component {
               type='email'
               name='email'
               value={email}
-              onchange={this.handleChange}
+              onChange={this.handleChange}
             />
           </label>
           <label className={s.label}>
@@ -42,13 +46,19 @@ class LoginView extends Component {
               type='password'
               name='password'
               value={password}
-              onchange={this.handleChange}
+              onChange={this.handleChange}
             />
           </label>
+
+          <button type='submit'>Login now</button>
         </form>
       </div>
     );
   }
 }
 
-export default LoginView;
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
+
+export default connect(null, mapDispatchToProps)(LoginView);
