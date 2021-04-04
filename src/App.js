@@ -1,15 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import HomeView from './views/HomeView';
-import RegisterView from './views/RegisterView';
-import LoginView from './views/LoginView';
-import ContactsView from './views/ContactsView';
-import AppBar from './components/AppBar/AppBar';
+import AppBar from './components/AppBar';
 import Container from './components/Container';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PublicRoute from './components/Routes/PublicRoute';
+
+// Code splitting
+const HomeView = lazy(() =>
+  import('./views/HomeView' /*webpackChunkName: "Home"*/)
+);
+const RegisterView = lazy(() =>
+  import('./views/RegisterView' /*webpackChunkName: "Register"*/)
+);
+const LoginView = lazy(() =>
+  import('./views/LoginView' /*webpackChunkName: "Login"*/)
+);
+const ContactsView = lazy(() =>
+  import('./views/ContactsView' /*webpackChunkName: "Contacts"*/)
+);
 
 class App extends Component {
   componentDidMount() {
@@ -21,26 +31,28 @@ class App extends Component {
       <Container>
         <AppBar />
 
-        <Switch>
-          <PublicRoute path='/' exact component={HomeView} />
-          <PublicRoute
-            path='/register'
-            restricted
-            redirectTo='/contacts'
-            component={RegisterView}
-          />
-          <PublicRoute
-            path='/login'
-            restricted
-            redirectTo='/contacts'
-            component={LoginView}
-          />
-          <PrivateRoute
-            path='/contacts'
-            redirectTo='/login'
-            component={ContactsView}
-          />
-        </Switch>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Switch>
+            <PublicRoute path='/' exact component={HomeView} />
+            <PublicRoute
+              path='/register'
+              restricted
+              redirectTo='/contacts'
+              component={RegisterView}
+            />
+            <PublicRoute
+              path='/login'
+              restricted
+              redirectTo='/contacts'
+              component={LoginView}
+            />
+            <PrivateRoute
+              path='/contacts'
+              redirectTo='/login'
+              component={ContactsView}
+            />
+          </Switch>
+        </Suspense>
       </Container>
     );
   }
