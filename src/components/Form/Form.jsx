@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
+import { contactsOperations } from '../../redux/contacts';
 import { form, label, input, button } from './Form.module.scss';
 
 const Form = ({ state, onSubmit }) => {
@@ -7,17 +8,17 @@ const Form = ({ state, onSubmit }) => {
   const [number, setNumber] = useState('');
 
   // Записывает значение инпута в стейт
-  const handleInputForm = e => {
+  const handleInputForm = (e) => {
     const { name, value } = e.target;
     name === 'name' ? setName(value) : setNumber(value);
   };
 
   // Создает объект контакта
-  const handleAddContact = e => {
+  const handleAddContact = (e) => {
     e.preventDefault();
 
     state.contacts.items.find(
-      item => item.name.toLowerCase() === name.toLowerCase(),
+      (item) => item.name.toLowerCase() === name.toLowerCase()
     )
       ? alert(`${name} is already in contacts.`)
       : onSubmit({
@@ -35,7 +36,7 @@ const Form = ({ state, onSubmit }) => {
         Name
         <input
           className={input}
-          name="name"
+          name='name'
           value={name}
           onChange={handleInputForm}
         />
@@ -45,21 +46,25 @@ const Form = ({ state, onSubmit }) => {
         Number
         <input
           className={input}
-          name="number"
+          name='number'
           value={number}
           onChange={handleInputForm}
         />
       </label>
 
-      <button className={button} tupe="submit" onClick={handleAddContact}>
+      <button className={button} tupe='submit' onClick={handleAddContact}>
         Add contact
       </button>
     </form>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   state: state,
 });
 
-export default connect(mapStateToProps, null)(Form);
+const mapDispatchToProps = {
+  onSubmit: contactsOperations.ADD,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

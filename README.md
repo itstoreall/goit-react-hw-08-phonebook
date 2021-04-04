@@ -4,20 +4,21 @@
 
 **_Use:_**
 
-- prop-types
+- axios
 - eslint
-- prettier
 - gh-pages
+- json-server
+- material-ui
 - modern-normalize
 - node-sass
-- axios
-- json-server
+- prettier
+- prop-types
 - react-redux
 - react-router-dom
 - redux
 - redux-devtools-extension
-- redux toolkit
 - redux-logger
+- redux toolkit
 - reselect (from toolkit)
 
 > The End of the Phonebook
