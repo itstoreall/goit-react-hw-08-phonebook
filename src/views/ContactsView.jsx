@@ -6,13 +6,14 @@ import Form from '../components/PhonebookForm';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 import { wrapper, title, subtitle, loading } from '../App.module.scss';
-import axios from 'axios';
+// import axios from 'axios';
+console.log(contactsOperations.GET());
 
 function ContactsView({ handleSubmit, handleInputFilter, isLoading }) {
   useEffect(() => {
-    console.log('in useEffect');
-    // contactsOperations.GET();
-    axios.get('/contacts').then((res) => console.log(res));
+    console.log('from ContactsView useEffect');
+    contactsOperations.GET();
+    // axios.get('/contacts').then((res) => console.log(res));
   });
 
   return (

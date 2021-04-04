@@ -22,11 +22,11 @@ import { contactsActions } from '../contacts';
 // GET
 export const GET = () => async (dispatch) => {
   dispatch(contactsActions.getContactsRequest());
-
+  console.log('from contact-operations GET getContactsRequest');
   try {
     const { data } = await axios.get('/contacts');
-
-    dispatch(contactsActions.getContactsSuccess(data));
+    console.log('from contact-operations GET', data);
+    // dispatch(contactsActions.getContactsSuccess(data));
   } catch (error) {
     dispatch(contactsActions.getContactsError(error.message));
   }
