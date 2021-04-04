@@ -55,6 +55,28 @@ const logOut = () => async (dispatch) => {
 };
 
 // Get Current User
-const getCurrentUser = () => (dispatch, getState) => {};
+const getCurrentUser = () => async (dispatch, getState) => {
+  // Забираем токен из стейта через getState()
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  // Проверяем наличие токена
+  if (!persistedToken) {
+    return;
+  }
+
+  // Добавляем токен в http заголовок
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
+
+  try {
+    const response = await axios.get('/users/current');
+
+    dispatch(authActions.getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.getCurrentUserError(error.message));
+  }
+};
 
 export default { register, logOut, logIn, getCurrentUser }; // eslint-disable-line

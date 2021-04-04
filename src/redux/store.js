@@ -24,6 +24,7 @@ const middleware = [
   // logger, // Don't delete
 ];
 
+// Saves to localStorage
 const authPersistConfig = {
   key: 'auth',
   storage,

@@ -24,4 +24,4 @@
 
 Open [localhost](http://localhost:3000)
 
-cd documents/github/goit-react-hw-07-phonebook
+cd documents/github/goit-react-hw-08-phonebook
