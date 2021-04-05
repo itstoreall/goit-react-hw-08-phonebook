@@ -1,28 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import defaultAvatar from './default-avatar.png';
 import s from './AppBar.module.scss';
 
-const useStyles = makeStyles({
-  logoutBtn: {
-    backgroundColor: '#6b7cb4',
-    color: 'white',
+// const useStyles = makeStyles({
+//   logoutBtn: {
+//     backgroundColor: '#6b7cb4',
+//     color: 'white',
 
-    '&:hover': {
-      backgroundColor: '#5064a3',
-      boxShadow: 'none',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
-  },
-});
+//     '&:hover': {
+//       backgroundColor: '#5064a3',
+//       boxShadow: 'none',
+//     },
+//     '&:focus': {
+//       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+//     },
+//   },
+// });
 
 const UserMenu = ({ avatar, name, onLogout }) => {
-  const ms = useStyles();
+  // const ms = useStyles();
 
   return (
     <div className={s.container}>
@@ -31,7 +31,7 @@ const UserMenu = ({ avatar, name, onLogout }) => {
 
       <Button
         variant='contained'
-        className={ms.logoutBtn}
+        className={s.authBtn}
         type='button'
         onClick={onLogout}
       >

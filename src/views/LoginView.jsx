@@ -2,46 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authOperations } from '../redux/auth';
 import s from './Views.module.scss';
-
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
+// import clsx from 'clsx';
+// import { makeStyles } from '@material-ui/core/styles';
 // import Input from '@material-ui/core/Input';
 // import FilledInput from '@material-ui/core/FilledInput';
+import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-// import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-// import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-// export default function InputAdornments() {
-//   const classes = useStyles();
-//   const [values, setValues] = React.useState({
-//     // amount: '',
-//     password: '',
-//     weight: '',
-//     weightRange: '',
-//     showPassword: false,
-//   });
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   margin: {
-//     margin: theme.spacing(1),
-//   },
-//   withoutLabel: {
-//     marginTop: theme.spacing(3),
-//   },
-//   textField: {
-//     width: '25ch',
-//   },
-// }));
+import Button from '@material-ui/core/Button';
 
 class LoginView extends Component {
   state = {
@@ -53,7 +26,7 @@ class LoginView extends Component {
     showPassword: false,
   };
 
-  handleChangeEmail = ({ target: { name, value } }) => {
+  handleEmailChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
@@ -65,14 +38,11 @@ class LoginView extends Component {
     this.setState({ name: '', email: '', password: '' });
   };
 
-  handleChange = (prop) => (event) => {
-    console.log(event.target.value);
-    console.log(prop);
+  handlePasswordChange = (prop) => (event) => {
     this.setState({ ...this.state, [prop]: event.target.value });
   };
 
   handleClickShowPassword = () => {
-    console.log(5);
     this.setState({ ...this.state, showPassword: !this.state.showPassword });
   };
 
@@ -80,45 +50,40 @@ class LoginView extends Component {
     event.preventDefault();
   };
 
-  // makeStyles = (theme) => ({
-  //   // root: {
-  //   //   display: 'flex',
-  //   //   flexWrap: 'wrap',
-  //   // },
-  //   // margin: {
-  //   //   margin: theme.spacing(1),
-  //   // },
-  //   // withoutLabel: {
-  //   //   marginTop: theme.spacing(3),
-  //   // },
-  //   // textField: {
-  //   //   width: '25ch',
-  //   // },
-  // });
-
   render() {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Login Page</h1>
+      <div className={s.formWrap}>
+        <h1>Login</h1>
 
         <form
           onSubmit={this.handleSubmit}
           className={s.form}
           autoComplete='off'
         >
-          <label className={s.label}>
+          {/* <label className={s.label}>
             <input
               type='email'
               name='email'
               value={email}
               onChange={this.handleChangeEmail}
             />
-          </label>
+          </label> */}
 
+          <TextField
+            id='outlined-basic'
+            label='Email'
+            variant='outlined'
+            className={s.input}
+            type='email'
+            name='email'
+            value={email}
+            onChange={this.handleEmailChange}
+          />
           <FormControl
-            className={clsx(makeStyles.margin, makeStyles.textField)}
+            className={s.input}
+            // className={clsx(makeStyles.margin, makeStyles.textField)}
             variant='outlined'
           >
             <InputLabel htmlFor='outlined-adornment-password'>
@@ -127,7 +92,7 @@ class LoginView extends Component {
             <OutlinedInput
               type={this.state.showPassword ? 'text' : 'password'}
               // value={values.password}
-              onChange={this.handleChange('password')}
+              onChange={this.handlePasswordChange('password')}
               id='outlined-adornment-password'
               // type='password'
               name='password'
@@ -162,7 +127,15 @@ class LoginView extends Component {
             />
           </label> */}
 
-          <button type='submit'>Login now</button>
+          <Button
+            variant='contained'
+            className={s.formBtn}
+            type='submit'
+            // onClick={onLogout}
+          >
+            Login now
+          </Button>
+          {/* <button type='submit'>Login now</button> */}
         </form>
       </div>
     );

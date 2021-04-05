@@ -13,14 +13,30 @@
   color: #ccc;
 }
 
+// .authBtn {
+//   text-decoration: none;
+//   font-weight: 500;
+//   color: #fff;
+// }
+
+.activeLink {
+  color: tomato;
+}
+
 .authBtn {
   text-decoration: none;
   font-weight: 500;
   color: #fff;
-}
+  background-color: #6b7cb4;
 
-.activeLink {
-  color: tomato;
+  &:hover {
+    background-color: #5064a3;
+    box-shadow: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
 }
 
 .container {
