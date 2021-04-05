@@ -1,8 +1,43 @@
 .container {
-  min-height: calc(100vh - 50px);
+  // min-height: calc(100vh - 50px);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: palevioletred;
+  // justify-content: center;
+  // align-items: center;
+}
+
+// ContactsView
+.wrapper {
+  padding-left: 10px;
+  padding-bottom: 40px;
+
+  &:nth-child(1) {
+    // width: 400px;
+    background-color: darkseagreen;
+  }
+
+  &:nth-child(2) {
+    // width: 400px;
+    background-color: gainsboro;
+  }
+
+  // .title {
+  //   font-size: 54px;
+  //   margin: 0;
+  //   // margin-top: 20px;
+  //   // margin-bottom: 45px;
+  // }
+
+  // .subtitle {
+  //   font-size: 54px;
+  //   line-height: 1.05;
+  // }
+
+  .loading {
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: rgba(107, 108, 179, 0.39);
+  }
 }
 
 .formWrap {
@@ -14,12 +49,6 @@
   max-width: 350px;
   min-height: 80vh;
   text-align: center;
-}
-
-h1 {
-  margin: 0;
-  margin-bottom: 30px;
-  color: #6b7cb4;
 }
 
 .form {

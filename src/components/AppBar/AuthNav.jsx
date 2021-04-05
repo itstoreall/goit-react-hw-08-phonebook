@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+// import s from './AppBar.module.scss';
+import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import s from './AppBar.module.scss';
 
 const useStyles = makeStyles({
   authBtn: {
@@ -25,39 +25,17 @@ const AuthNav = () => {
 
   return (
     <div>
-      <Button
-        variant='contained'
-        className={ms.authBtn}
-        type='button'
-        // onClick={onLogout}
-      >
-        {/* Registration */}
-        <NavLink
-          to='/register'
-          exact
-          className={s.authBtn}
-          // activeClassName={s.activeLink}
-        >
+      <NavLink to='/register' exact>
+        <Button variant='contained' className={ms.authBtn} type='button'>
           Registration
-        </NavLink>
-      </Button>
+        </Button>
+      </NavLink>
 
-      <Button
-        variant='contained'
-        className={ms.authBtn}
-        type='button'
-        // onClick={onLogout}
-      >
-        {/* Registration */}
-        <NavLink
-          to='/login'
-          exact
-          className={s.authBtn}
-          // activeClassName={s.activeLink}
-        >
+      <NavLink to='/login' exact>
+        <Button variant='contained' className={ms.authBtn} type='button'>
           Login
-        </NavLink>
-      </Button>
+        </Button>
+      </NavLink>
 
       {/* <NavLink
       to='/register'

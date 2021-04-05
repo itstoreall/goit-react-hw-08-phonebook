@@ -4,7 +4,7 @@ import { contactsOperations, contactsSelectors } from '../redux/contacts';
 import Form from '../components/Form';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
-import { wrapper, title, subtitle, loading } from '../App.module.scss';
+import s from './Views.module.scss';
 import Container from '../components/Container';
 
 class ContactsView extends Component {
@@ -15,18 +15,22 @@ class ContactsView extends Component {
   render() {
     return (
       <Container>
-        <div className={wrapper}>
-          <h1 className={title}>Phonebook</h1>
-          <Form
-            onInputChange={this.handleInputFilter}
-            onSubmit={this.handleSubmit}
-          />
-          <h2 className={subtitle}>
-            Contacts{' '}
-            {this.isLoading && <span className={loading}>Loading...</span>}
-          </h2>
-          <Filter />
-          <ContactList />
+        <div className={s.container}>
+          <div className={s.wrapper}>
+            <h2 className={s.subtitle}>
+              Contacts{' '}
+              {this.isLoading && <span className={s.loading}>Loading...</span>}
+            </h2>
+            <Filter />
+            <ContactList />
+          </div>
+          <div className={s.wrapper}>
+            <h1 className={s.title}>Phonebook</h1>
+            <Form
+              onInputChange={this.handleInputFilter}
+              onSubmit={this.handleSubmit}
+            />
+          </div>
         </div>
       </Container>
     );
