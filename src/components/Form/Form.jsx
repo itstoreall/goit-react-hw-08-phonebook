@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { contactsOperations } from '../../redux/contacts';
-import { form, label, input, button } from './Form.module.scss';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { form } from './Form.module.scss';
 
 const Form = ({ state, onSubmit }) => {
   const [name, setName] = useState('');
@@ -32,7 +34,7 @@ const Form = ({ state, onSubmit }) => {
 
   return (
     <form className={form}>
-      <label className={label}>
+      {/* <label className={label}>
         Name
         <input
           className={input}
@@ -40,9 +42,20 @@ const Form = ({ state, onSubmit }) => {
           value={name}
           onChange={handleInputForm}
         />
-      </label>
+      </label> */}
 
-      <label className={label}>
+      <TextField
+        id='name-outlined-basic'
+        label='Name'
+        variant='outlined'
+        // className={s.input}
+        type='text'
+        name='name'
+        value={name} // *
+        onChange={handleInputForm}
+      />
+
+      {/* <label className={label}>
         Number
         <input
           className={input}
@@ -50,11 +63,31 @@ const Form = ({ state, onSubmit }) => {
           value={number}
           onChange={handleInputForm}
         />
-      </label>
+      </label> */}
 
-      <button className={button} tupe='submit' onClick={handleAddContact}>
+      <TextField
+        id='number-outlined-basic'
+        label='Number'
+        variant='outlined'
+        // className={s.input}
+        type='tel'
+        name='number'
+        value={number} // *
+        onChange={handleInputForm}
+      />
+
+      {/* <button className={button} tupe='submit' onClick={handleAddContact}>
         Add contact
-      </button>
+      </button> */}
+
+      <Button
+        variant='contained'
+        // className={s.formBtn}
+        type='submit'
+        onClick={handleAddContact}
+      >
+        Add contact
+      </Button>
     </form>
   );
 };

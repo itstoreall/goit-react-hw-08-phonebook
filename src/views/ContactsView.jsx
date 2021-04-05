@@ -15,23 +15,23 @@ class ContactsView extends Component {
   render() {
     return (
       <Container>
-        <div className={s.container}>
-          <div className={s.wrapper}>
-            <h2 className={s.subtitle}>
-              Contacts{' '}
+        <section className={s.section}>
+          <h1 className={s.title}>Phonebook</h1>
+          <div className={s.contactsWrapper}>
+            <b className={s.subtitle}>
+              Contacts:{' '}
               {this.isLoading && <span className={s.loading}>Loading...</span>}
-            </h2>
+            </b>
             <Filter />
             <ContactList />
           </div>
-          <div className={s.wrapper}>
-            <h1 className={s.title}>Phonebook</h1>
+          <div className={s.formWrapper}>
             <Form
               onInputChange={this.handleInputFilter}
               onSubmit={this.handleSubmit}
             />
           </div>
-        </div>
+        </section>
       </Container>
     );
   }

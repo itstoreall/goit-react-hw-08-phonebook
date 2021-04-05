@@ -14,8 +14,8 @@ import Button from '@material-ui/core/Button';
 
 class LoginView extends Component {
   state = {
-    email: '',
-    password: '',
+    email: 's@mail.net',
+    password: 'qweqweqwe',
 
     // weight: '',
     // weightRange: '',
@@ -65,7 +65,7 @@ class LoginView extends Component {
             className={s.input}
             type='email'
             name='email'
-            value={email}
+            value={email} // *
             onChange={this.handleEmailChange}
           />
 
@@ -79,13 +79,13 @@ class LoginView extends Component {
             </InputLabel>
             <OutlinedInput
               type={this.state.showPassword ? 'text' : 'password'}
-              // value={values.password}
+              // value={values.password} // *
               onChange={this.handlePasswordChange('password')}
               id='outlined-adornment-password'
               // type='password'
               name='password'
-              value={password}
-              // onChange={this.handleChange}
+              value={password} // *
+              // onChange={this.handleChange} // *
               endAdornment={
                 <InputAdornment position='end'>
                   <IconButton

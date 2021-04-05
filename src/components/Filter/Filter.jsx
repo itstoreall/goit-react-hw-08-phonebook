@@ -4,17 +4,17 @@ import { label, input } from './Filter.module.scss';
 
 const Filter = ({ value, onChange }) => (
   <label className={label}>
-    Find contacts by name
+    Search by name
     <input className={input} value={value} onChange={onChange} />
   </label>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   value: contactsSelectors.getFilter(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(contactsActions.contactFilter(e.target.value)),
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (e) => dispatch(contactsActions.contactFilter(e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
