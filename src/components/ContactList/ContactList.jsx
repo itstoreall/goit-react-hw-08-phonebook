@@ -1,10 +1,10 @@
 import ContactItem from './ContactItem';
-import { contactList } from './Contacts.module.scss';
+import s from './Contacts.module.scss';
 
 // Презентационный компонент (без логики)
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul className={contactList}>
-    {contacts.map(contact => (
+  <ul className={s.contactList}>
+    {contacts.map((contact) => (
       <ContactItem
         key={contact.id}
         contact={contact}

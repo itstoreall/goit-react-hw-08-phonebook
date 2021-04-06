@@ -50,19 +50,19 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div className={s.formWrap}>
+      <div className={s.authFormWrap}>
         <h1>Login</h1>
 
         <form
           onSubmit={this.handleSubmit}
-          className={s.form}
+          className={s.authForm}
           autoComplete='off'
         >
           <TextField
             id='outlined-basic'
             label='Email'
             variant='outlined'
-            className={s.input}
+            className={s.authFormInput}
             type='email'
             name='email'
             value={email} // *
@@ -70,7 +70,7 @@ class LoginView extends Component {
           />
 
           <FormControl
-            className={s.input}
+            className={s.authFormInput}
             // className={clsx(makeStyles.margin, makeStyles.textField)}
             variant='outlined'
           >
@@ -108,7 +108,7 @@ class LoginView extends Component {
 
           <Button
             variant='contained'
-            className={s.formBtn}
+            className={s.authFormBtn}
             type='submit'
             // onClick={onLogout}
           >

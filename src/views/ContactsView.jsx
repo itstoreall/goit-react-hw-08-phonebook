@@ -13,16 +13,18 @@ class ContactsView extends Component {
   }
 
   render() {
+    const { isLoading } = this.props;
+
     return (
       <Container>
-        <section className={s.section}>
-          <h1 className={s.title}>Phonebook</h1>
-          <div className={s.contactsWrapper}>
+        <section className={s.contactSection}>
+          <h1 className={s.contactSection__title}>Phonebook</h1>
+          <div className={s.contactWrapper}>
+            <Filter />
             <b className={s.subtitle}>
               Contacts:{' '}
-              {this.isLoading && <span className={s.loading}>Loading...</span>}
+              {isLoading && <span className={s.loading}>Loading...</span>}
             </b>
-            <Filter />
             <ContactList />
           </div>
           <div className={s.formWrapper}>

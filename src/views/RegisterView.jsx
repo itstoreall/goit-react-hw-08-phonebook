@@ -48,19 +48,19 @@ class RegisterView extends Component {
     const { name, email, password } = this.state;
 
     return (
-      <div className={s.formWrap}>
+      <div className={s.authFormWrap}>
         <h1>Registration</h1>
 
         <form
           onSubmit={this.handleSubmit}
-          className={s.form}
+          className={s.authForm}
           autoComplete='off'
         >
           <TextField
             id='name-outlined-basic'
             label='Name'
             variant='outlined'
-            className={s.input}
+            className={s.authFormInput}
             type='text'
             name='name'
             value={name}
@@ -71,7 +71,7 @@ class RegisterView extends Component {
             id='email-outlined-basic'
             label='Email'
             variant='outlined'
-            className={s.input}
+            className={s.authFormInput}
             type='email'
             name='email'
             value={email}
@@ -79,7 +79,7 @@ class RegisterView extends Component {
           />
 
           <FormControl
-            className={s.input}
+            className={s.authFormInput}
             // className={clsx(makeStyles.margin, makeStyles.textField)}
             variant='outlined'
           >
@@ -117,7 +117,7 @@ class RegisterView extends Component {
 
           <Button
             variant='contained'
-            className={s.formBtn}
+            className={s.authFormBtn}
             type='submit'
             // onClick={onLogout}
           >
