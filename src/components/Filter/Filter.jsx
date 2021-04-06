@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => {
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
       '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 0.35),
+        backgroundColor: fade(theme.palette.common.white, 0.25),
       },
       marginLeft: 0,
       // width: '100%',
@@ -43,8 +43,10 @@ const useStyles = makeStyles((theme) => {
       alignItems: 'center',
       justifyContent: 'center',
     },
+
     inputRoot: {
-      color: 'inherit',
+      // color: 'inherit',
+      color: 'white',
     },
 
     inputInput: {
@@ -56,14 +58,13 @@ const useStyles = makeStyles((theme) => {
       width: '15ch',
       '&:focus': {
         width: '25ch',
-        backgroundColor: fade(theme.palette.common.white, 0.65),
         borderRadius: theme.shape.borderRadius,
       },
 
       [theme.breakpoints.up('sm')]: {
         width: '15ch',
         '&:focus': {
-          width: '25ch',
+          width: '31.7ch',
         },
       },
     },

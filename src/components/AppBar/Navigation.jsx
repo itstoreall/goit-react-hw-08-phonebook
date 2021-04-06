@@ -7,7 +7,7 @@ import s from './AppBar.module.scss';
 const Navigation = ({ isAuthenticated }) => (
   <nav>
     <NavLink to='/' exact className={s.link} activeClassName={s.activeLink}>
-      Home
+      <h1 className={s.logo}>Phonebook</h1>
     </NavLink>
 
     {isAuthenticated && (

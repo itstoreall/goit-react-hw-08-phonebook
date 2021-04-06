@@ -22,7 +22,7 @@ const ContactsView = ({ isLoading, getContacts }) => {
 
   return (
     <Container>
-      <section className={s.contactSection}>
+      <div className={s.contactContainer}>
         {/* <Box display='flex' alignItems='center'>
             <Box width='100%' mr={1}>
               <LinearProgress variant='determinate' {...props} />
@@ -33,7 +33,7 @@ const ContactsView = ({ isLoading, getContacts }) => {
               )}%`}</Typography>
             </Box>
           </Box> */}
-        <h1 className={s.contactSection__title}>Phonebook</h1>
+
         <div className={s.contactWrapper}>
           <Filter />
           <p className={s.subtitle}>
@@ -45,7 +45,7 @@ const ContactsView = ({ isLoading, getContacts }) => {
         <div className={s.formWrapper}>
           <Form />
         </div>
-      </section>
+      </div>
     </Container>
   );
 };
