@@ -32,8 +32,12 @@
 
   // // --------------  Contacts
   .contactWrapper {
-    width: 500px;
+    width: 100%;
     background-color: gainsboro;
+
+    @media screen and (min-width: 600px) {
+      width: 350px;
+    }
 
     .subtitle {
       font-size: 26px;
@@ -48,8 +52,15 @@
   }
 
   .formWrapper {
-    width: 300px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: darkseagreen;
+
+    @media screen and (min-width: 600px) {
+      position: static;
+      width: 250px;
+    }
   }
 }
 

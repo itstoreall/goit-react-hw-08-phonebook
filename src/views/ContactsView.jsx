@@ -10,7 +10,7 @@ import Container from '../components/Container';
 
 // =======
 
-const ContactsView = ({ dispatch, isLoading, getContacts }) => {
+const ContactsView = ({ isLoading, getContacts }) => {
   useEffect(() => {
     getContacts();
   }, [getContacts]);
@@ -36,10 +36,10 @@ const ContactsView = ({ dispatch, isLoading, getContacts }) => {
         <h1 className={s.contactSection__title}>Phonebook</h1>
         <div className={s.contactWrapper}>
           <Filter />
-          <b className={s.subtitle}>
+          <p className={s.subtitle}>
             Contacts:{' '}
-            {isLoading && <span className={s.loading}>Loading...</span>}
-          </b>
+            {isLoading && <span className={s.loading}> Loading...</span>}
+          </p>
           <ContactList />
         </div>
         <div className={s.formWrapper}>
