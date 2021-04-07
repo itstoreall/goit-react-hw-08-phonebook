@@ -6,7 +6,7 @@ import Form from '../components/Form';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 import s from './Views.module.scss';
-import Container from '../components/Container';
+// import Container from '../components/Container';
 
 // =======
 
@@ -21,32 +21,22 @@ const ContactsView = ({ isLoading, getContacts }) => {
   // }, []);
 
   return (
-    <Container>
-      <div className={s.contactContainer}>
-        {/* <Box display='flex' alignItems='center'>
-            <Box width='100%' mr={1}>
-              <LinearProgress variant='determinate' {...props} />
-            </Box>
-            <Box minWidth={35}>
-              <Typography variant='body2' color='textSecondary'>{`${Math.round(
-                props.value
-              )}%`}</Typography>
-            </Box>
-          </Box> */}
-
-        <div className={s.contactWrapper}>
-          <Filter />
-          <p className={s.subtitle}>
-            Contacts:{' '}
-            {isLoading && <span className={s.loading}> Loading...</span>}
-          </p>
-          <ContactList />
-        </div>
-        <div className={s.formWrapper}>
-          <Form />
-        </div>
+    // <Container>
+    <div className={s.contactContainer}>
+      {/* <div className={s.filterWrapper}> */}
+      <Filter />
+      {/* </div> */}
+      <p className={s.subtitle}>
+        Contacts: {isLoading && <span className={s.loading}> Loading...</span>}
+      </p>
+      <div className={s.contactWrapper}>
+        <ContactList />
       </div>
-    </Container>
+      <div className={s.formWrapper}>
+        <Form />
+      </div>
+    </div>
+    // </Container>
   );
 };
 

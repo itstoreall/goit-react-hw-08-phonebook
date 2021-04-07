@@ -1,6 +1,6 @@
 @import 'styles/shared.scss';
 
-// --------------  HomeView
+// -------------- HomeView
 .homeSection {
   display: flex;
   justify-content: center;
@@ -14,30 +14,31 @@
   }
 }
 
-// --------------  ContactsView
+// -------------- ContactsView
 .contactContainer {
   display: flex;
   flex-wrap: wrap;
-  // padding-top: 30px;
-  background-color: palevioletred;
+  // background-color: palevioletred;
 
-  // h1
-  .contactContainer {
-    width: 100%;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 30px;
+  // -------------- Filter
+  .filterWrapper {
+    background-color: skyblue;
   }
 
-  // // --------------  Contacts
+  // -------------- Contacts
   .contactWrapper {
     width: 100%;
     color: $primaryWhiteColor;
-    background-color: rgb(43, 43, 46);
+    // overflow: scroll;
+    height: 100vh;
+    background-color: rgb(48, 48, 51);
 
+    overflow: hidden;
     @media screen and (min-width: 600px) {
-      width: 350px;
+      margin-right: 10px;
+      width: 340px;
+      height: 500px;
+      // height: 100%;
     }
 
     .subtitle {
@@ -52,11 +53,12 @@
     }
   }
 
+  // -------------- Form
   .formWrapper {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: darkseagreen;
+    // background-color: darkseagreen;
 
     @media screen and (min-width: 600px) {
       position: static;
@@ -65,7 +67,7 @@
   }
 }
 
-// --------------  Register & Login forms
+// -------------- Register & Login Views
 .authFormWrap {
   display: flex;
   flex-direction: column;
@@ -97,10 +99,10 @@
       text-decoration: none;
       font-weight: 500;
       color: $primaryWhiteColor;
-      background-color: $primaryColor;
+      background-color: $primaryBg;
 
       &:hover {
-        background-color: $secondaryColor;
+        background-color: $secondaryBg;
         box-shadow: none;
       }
 

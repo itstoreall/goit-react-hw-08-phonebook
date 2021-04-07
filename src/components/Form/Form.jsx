@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { contactsOperations } from '../../redux/contacts';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { form } from './Form.module.scss';
+import s from './Form.module.scss';
 
 const Form = ({ state, onSubmit }) => {
   const [name, setName] = useState('');
@@ -33,7 +33,7 @@ const Form = ({ state, onSubmit }) => {
   };
 
   return (
-    <form className={form}>
+    <form className={s.form}>
       {/* <label className={label}>
         Name
         <input
@@ -82,7 +82,7 @@ const Form = ({ state, onSubmit }) => {
 
       <Button
         variant='contained'
-        // className={s.formBtn}
+        className={s.formBtn}
         type='submit'
         onClick={handleAddContact}
       >

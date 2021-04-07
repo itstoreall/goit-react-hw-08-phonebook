@@ -6,6 +6,7 @@ import Container from './components/Container';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PublicRoute from './components/Routes/PublicRoute';
+import s from './App.module.scss';
 
 // Code splitting
 const HomeView = lazy(() =>
@@ -29,30 +30,32 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <AppBar />
+        <div className={s.AppWrap}>
+          <AppBar />
 
-        <Suspense fallback={<p>Loading...</p>}>
-          <Switch>
-            <PublicRoute path='/' exact component={HomeView} />
-            <PublicRoute
-              path='/register'
-              restricted
-              redirectTo='/contacts'
-              component={RegisterView}
-            />
-            <PublicRoute
-              path='/login'
-              restricted
-              redirectTo='/contacts'
-              component={LoginView}
-            />
-            <PrivateRoute
-              path='/contacts'
-              redirectTo='/login'
-              component={ContactsView}
-            />
-          </Switch>
-        </Suspense>
+          <Suspense fallback={<p>Loading...</p>}>
+            <Switch>
+              <PublicRoute path='/' exact component={HomeView} />
+              <PublicRoute
+                path='/register'
+                restricted
+                redirectTo='/contacts'
+                component={RegisterView}
+              />
+              <PublicRoute
+                path='/login'
+                restricted
+                redirectTo='/contacts'
+                component={LoginView}
+              />
+              <PrivateRoute
+                path='/contacts'
+                redirectTo='/login'
+                component={ContactsView}
+              />
+            </Switch>
+          </Suspense>
+        </div>
       </Container>
     );
   }
