@@ -1,12 +1,13 @@
 .Container {
   margin-left: auto;
   margin-right: auto;
-  background-color: palevioletred;
+  background-color: rgb(48, 48, 51);
+  // background-color: palevioletred;
 
   @media screen and (min-width: 600px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
     min-height: 100vh;
     width: 600px;
   }

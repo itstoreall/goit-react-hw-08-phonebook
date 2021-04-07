@@ -3,7 +3,7 @@ import { contactsSelectors, contactsActions } from '../../redux/contacts';
 // import { label, input } from './Filter.module.scss';
 
 import InputBase from '@material-ui/core/InputBase';
-import Toolbar from '@material-ui/core/Toolbar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -13,12 +13,13 @@ const useStyles = makeStyles((theme) => {
   console.log(theme.breakpoints.values);
 
   return {
-    MuiToolbarGutters: {
-      padding: 0,
-      paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
-      minHeight: 80,
-    },
+    // MuiToolbarGutters: {
+    //   padding: 0,
+    //   paddingLeft: theme.spacing(1),
+    //   paddingRight: theme.spacing(1),
+    //   minHeight: 80,
+    // },
+
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
@@ -27,14 +28,15 @@ const useStyles = makeStyles((theme) => {
         backgroundColor: fade(theme.palette.common.white, 0.25),
       },
       marginLeft: 0,
-      // width: '100%',
       width: 'auto',
 
       [theme.breakpoints.up('sm')]: {
         width: 'auto',
       },
     },
-    searchIcon: {
+
+    // div
+    searchIconWrap: {
       padding: theme.spacing(0, 1),
       height: '100%',
       position: 'absolute',
@@ -42,6 +44,12 @@ const useStyles = makeStyles((theme) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      fill: 'red',
+
+      // icon
+      '& > svg': {
+        fill: 'green',
+      },
     },
 
     inputRoot: {
@@ -64,7 +72,7 @@ const useStyles = makeStyles((theme) => {
       [theme.breakpoints.up('sm')]: {
         width: '15ch',
         '&:focus': {
-          width: '31.7ch',
+          width: '26ch',
         },
       },
     },
@@ -124,6 +132,7 @@ const Filter = ({ value, onChange }) => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:600px)');
   console.log(matches);
+
   return (
     <>
       {/* <label className={label}>
@@ -131,23 +140,23 @@ const Filter = ({ value, onChange }) => {
         <input className={input} value={value} onChange={onChange} />
       </label> */}
 
-      <Toolbar className={classes.MuiToolbarGutters}>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder='Search by name…'
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ 'aria-label': 'search' }}
-            value={value}
-            onChange={onChange}
-          />
+      {/* <Toolbar className={classes.MuiToolbarGutters}> */}
+      <div className={classes.search}>
+        <div className={classes.searchIconWrap}>
+          <SearchIcon />
         </div>
-      </Toolbar>
+        <InputBase
+          placeholder='Search by name…'
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+          inputProps={{ 'aria-label': 'search' }}
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+      {/* </Toolbar> */}
     </>
   );
 };

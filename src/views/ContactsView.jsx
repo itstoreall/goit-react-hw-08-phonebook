@@ -5,38 +5,43 @@ import { contactsOperations, contactsSelectors } from '../redux/contacts';
 import Form from '../components/Form';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import s from './Views.module.scss';
-// import Container from '../components/Container';
 
-// =======
+const useStyles = makeStyles((theme) => ({
+  root: {
+    position: 'absolute',
+    backgroundColor: 'transparent',
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 const ContactsView = ({ isLoading, getContacts }) => {
+  const classes = useStyles();
+
   useEffect(() => {
     getContacts();
   }, [getContacts]);
 
-  // componentDidMount
-  // useEffect(() => {
-  //   dispatch(getContacts());
-  // }, []);
-
   return (
-    // <Container>
     <div className={s.contactContainer}>
-      {/* <div className={s.filterWrapper}> */}
-      <Filter />
-      {/* </div> */}
-      <p className={s.subtitle}>
-        Contacts: {isLoading && <span className={s.loading}> Loading...</span>}
-      </p>
-      <div className={s.contactWrapper}>
-        <ContactList />
+      <div>{isLoading && <LinearProgress className={classes.root} />}</div>
+      <div className={s.filterWrapper}>
+        <Filter />
       </div>
-      <div className={s.formWrapper}>
-        <Form />
+      <div className={s.wrap}>
+        <div className={s.contactWrapper}>
+          <ContactList />
+        </div>
+        <div className={s.formWrapper}>
+          <Form />
+        </div>
       </div>
     </div>
-    // </Container>
   );
 };
 
