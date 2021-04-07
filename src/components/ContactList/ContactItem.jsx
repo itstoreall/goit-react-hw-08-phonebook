@@ -24,9 +24,10 @@ const useStyles = makeStyles((theme) => ({
   },
   deleteIcon: {
     fontSize: 20,
-    fill: '#546086',
+    opacity: 0.7,
+    fill: 'palevioletred',
     '&:hover': {
-      fill: '#6b7cb4',
+      fill: 'palevioletred',
     },
   },
 }));

@@ -21,11 +21,16 @@ const useStyles = makeStyles((theme) => {
     // },
 
     search: {
+      paddingLeft: 5,
+      height: 50,
       position: 'relative',
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
+      // borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.0),
+      // border: ['2px solid transparent'],
+
       '&:hover': {
         backgroundColor: fade(theme.palette.common.white, 0.25),
+        // border: ['2px solid white'],
       },
       marginLeft: 0,
       width: 'auto',
@@ -48,16 +53,18 @@ const useStyles = makeStyles((theme) => {
 
       // icon
       '& > svg': {
-        fill: 'green',
+        fill: 'white',
       },
     },
 
     inputRoot: {
-      // color: 'inherit',
       color: 'white',
+      // color: 'inherit',
+      // color: '#546086',
     },
 
     inputInput: {
+      height: 34,
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(3)}px)`,
@@ -65,14 +72,14 @@ const useStyles = makeStyles((theme) => {
       // width: '100%',
       width: '15ch',
       '&:focus': {
-        width: '25ch',
-        borderRadius: theme.shape.borderRadius,
+        width: '26ch',
+        // borderRadius: theme.shape.borderRadius,
       },
 
       [theme.breakpoints.up('sm')]: {
-        width: '15ch',
+        width: '18ch',
         '&:focus': {
-          width: '26ch',
+          width: '27.4ch',
         },
       },
     },

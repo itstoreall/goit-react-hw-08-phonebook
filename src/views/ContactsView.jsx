@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     backgroundColor: 'transparent',
     width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
+    // '& > * + *': {
+    //   marginTop: theme.spacing(2),
+    // },
   },
 }));
 
