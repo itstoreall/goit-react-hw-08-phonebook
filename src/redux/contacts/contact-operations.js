@@ -1,15 +1,4 @@
 import axios from 'axios';
-// import {
-//   getContactsRequest,
-//   getContactsSuccess,
-//   getContactsError,
-//   addContactRequest,
-//   addContactSuccess,
-//   addContactError,
-//   deleteContactRequest,
-//   deleteContactSuccess,
-//   deleteContactError,
-// } from './contact-actions';
 import { contactsActions } from '../contacts';
 
 /**

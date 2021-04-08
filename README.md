@@ -20,9 +20,3 @@
 - redux-logger
 - redux toolkit
 - reselect (from toolkit)
-
-> The End of the Phonebook
-
-Open [localhost](http://localhost:3000)
-
-cd documents/github/goit-react-hw-08-phonebook

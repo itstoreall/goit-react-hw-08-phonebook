@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import { authActions } from '../auth';
-// import authActions from './auth-actions';
 
 const initialUserState = { name: null, email: null };
 
@@ -44,7 +43,3 @@ export default combineReducers({
   token,
   error,
 });
-
-/**
- * Редюсер обрабатывает каждый кейс из операций
- */

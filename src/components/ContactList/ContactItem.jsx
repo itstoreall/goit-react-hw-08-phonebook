@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import PersonIcon from '@material-ui/icons/Person';
@@ -36,13 +35,7 @@ const ContactItem = ({ contact: { id, name, number }, onDeleteContact }) => {
   const ms = useStyles();
 
   return (
-    // <li className={contactItem}>
     <ListItem button divider className={ms.contactItemDivider}>
-      {/* <ListItemText primary='Drafts' /> */}
-
-      {/* <button className={button} onClick={() => onDeleteContact(id)}>
-        Delete
-      </button> */}
       <div className={s.contactItemInfoWrap}>
         <PersonIcon className={ms.personIcon} />
         <p>{`${name}: ${number}`}</p>
@@ -55,7 +48,6 @@ const ContactItem = ({ contact: { id, name, number }, onDeleteContact }) => {
         <CancelIcon fontSize='small' className={ms.deleteIcon} />
       </IconButton>
     </ListItem>
-    // </li>
   );
 };
 

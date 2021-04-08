@@ -23,14 +23,13 @@ const useStyles = makeStyles({
   },
 });
 
-const UserMenu = ({ name, onLogout }) => {
+const UserMenu = ({ email, onLogout }) => {
   const ms = useStyles();
 
   return (
     <div className={s.userMenuContainer}>
       <Avatar src='/broken-image.jpg' className={s.userAvatar} />
-      {/* <img src={avatar} alt='' width='32' className={s.avatar} /> */}
-      <span className={s.userName}>{name}</span>
+      <span className={s.userName}>{email}</span>
 
       <Button
         variant='contained'
@@ -40,15 +39,12 @@ const UserMenu = ({ name, onLogout }) => {
       >
         Logout
       </Button>
-      {/* <button className={classes.logoutBtn} type='button' onClick={onLogout}>
-        Logout
-      </button> */}
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  name: authSelectors.getUsername(state),
+  email: authSelectors.getUserEmail(state),
   avatar: defaultAvatar,
 });
 
