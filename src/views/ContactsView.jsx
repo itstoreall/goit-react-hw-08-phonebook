@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { contactsOperations, contactsSelectors } from '../redux/contacts';
-import Form from '../components/Form';
+import ContactForm from '../components/Form';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ const ContactsView = ({ isLoading, getContacts }) => {
           <ContactList />
         </div>
         <div className={s.formWrapper}>
-          <Form />
+          <ContactForm />
         </div>
       </div>
     </div>
