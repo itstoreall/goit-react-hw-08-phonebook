@@ -1,7 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
-import PersonIcon from '@material-ui/icons/Person';
+// import PersonIcon from '@material-ui/icons/Person';
+import PhoneIcon from '@material-ui/icons/Phone';
 import CancelIcon from '@material-ui/icons/Cancel';
 
 import s from './Contacts.module.scss';
@@ -13,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 8,
     paddingLeft: 15,
   },
-  personIcon: {
-    marginRight: 15,
+  phoneIcon: {
+    fontSize: 28,
+    marginRight: 20,
     fill: '#546086',
   },
   deleteBtn: {
@@ -22,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
   },
   deleteIcon: {
-    fontSize: 20,
+    fontSize: 26,
     opacity: 0.7,
     fill: 'palevioletred',
     '&:hover': {
@@ -37,8 +39,8 @@ const ContactItem = ({ contact: { id, name, number }, onDeleteContact }) => {
   return (
     <ListItem button divider className={ms.contactItemDivider}>
       <div className={s.contactItemInfoWrap}>
-        <PersonIcon className={ms.personIcon} />
-        <ul >
+        <PhoneIcon className={ms.phoneIcon} />
+        <ul>
           <li>{`${name}`}</li>
           <li>{`${number}`}</li>
         </ul>

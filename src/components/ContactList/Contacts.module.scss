@@ -10,17 +10,17 @@
     display: flex;
     align-items: center;
 
-    & > ul {
-      padding-left: 0;
+    & > ul > li {
+      font-size: 16px;
+      list-style: none;
 
-      & > li {
-        font-size: 16px;
+      @media screen and (min-width: 600px) {
+        font-size: 14px;
+      }
+
+      &:first-child {
         margin-bottom: 5px;
-        list-style: none;
-
-        &:first-child {
-          font-weight: 700;
-        }
+        font-weight: 700;
       }
     }
   }

@@ -38,12 +38,13 @@
   .contactWrapper {
     width: 100%;
     color: $personColor;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 283px);
     border-right: 1px solid #ccc;
 
     overflow: hidden;
     @media screen and (min-width: 600px) {
       width: 300px;
+      height: calc(100vh - 100px);
     }
   }
 
@@ -81,6 +82,7 @@
 
   .authForm {
     width: 100%;
+    padding: 10px;
 
     .authFormInput {
       margin-bottom: 15px;
