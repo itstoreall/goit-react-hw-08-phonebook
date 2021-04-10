@@ -38,7 +38,10 @@ const ContactItem = ({ contact: { id, name, number }, onDeleteContact }) => {
     <ListItem button divider className={ms.contactItemDivider}>
       <div className={s.contactItemInfoWrap}>
         <PersonIcon className={ms.personIcon} />
-        <p>{`${name}: ${number}`}</p>
+        <ul >
+          <li>{`${name}`}</li>
+          <li>{`${number}`}</li>
+        </ul>
       </div>
       <IconButton
         aria-label='delete contact'
